@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">My Application</string>
+
+    <string name="agence_label">Agence</string>
+
+    <string name="app_error">Oops something went wrong</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="tab_text_1">A venir</string>
+    <string name="tab_text_2">Mieux noté</string>
+    <string name="tab_text_3">Populaire</string>
+</resources>
