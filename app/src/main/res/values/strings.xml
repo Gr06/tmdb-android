@@ -5,9 +5,9 @@
 
     <string name="app_error">Oops something went wrong</string>
 
-    <string name="title_home">Home</string>
+    <string name="title_home">Accueil</string>
     <string name="title_favorites">Favoris</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_search">Rechercher</string>
 
     <string name="tab_text_1">A venir</string>
     <string name="tab_text_2">Mieux noté</string>
