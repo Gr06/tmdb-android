@@ -12,4 +12,6 @@
     <string name="tab_text_1">A venir</string>
     <string name="tab_text_2">Mieux noté</string>
     <string name="tab_text_3">Populaire</string>
+
+    <string name="movie_poster">Movie poster</string>
 </resources>

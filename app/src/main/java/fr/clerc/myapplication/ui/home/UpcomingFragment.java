@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static fr.clerc.myapplication.MainActivity.FEATURE_NAME;
+import static fr.clerc.myapplication.MainActivity.MOVIE_ID;
 
 public class UpcomingFragment extends Fragment {
 
@@ -42,7 +43,7 @@ public class UpcomingFragment extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_upcoming, container, false);
+        View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
         //int index  = getArguments().getInt(ARG_SECTION_NUMBER, -1);
 
 
@@ -54,11 +55,12 @@ public class UpcomingFragment extends Fragment {
             @Override
             public void onItemClick(View view, BaseMovie movie) {
                 Intent intent = new Intent(getContext(), AgencyDetailsActivity.class);
-                intent.putExtra(FEATURE_NAME, Integer.toString(movie.id));
+                intent.putExtra(MOVIE_ID, Integer.toString(movie.id));
                 startActivity(intent);
             }
         });
         recyclerView.setAdapter(recyclerAdapter);
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
         fetchUpComingMovies();
         //return inflater.inflate(R.layout.fragment_upcoming, container, false);
@@ -67,7 +69,7 @@ public class UpcomingFragment extends Fragment {
 
     private void fetchUpComingMovies() {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.upcoming(1,"FR","FR").enqueue(new Callback<MovieResultsPage>() {
+        moviesService.upcoming(1,"fr","FR").enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

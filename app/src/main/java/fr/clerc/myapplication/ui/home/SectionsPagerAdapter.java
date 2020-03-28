@@ -30,11 +30,11 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0: //Page number 1
-                return UpcomingFragment.newInstance();
+                return PopularFragment.newInstance();
             case 1: //Page number 2
                 return TopRatedFragment.newInstance();
             case 2: //Page number 3
-                return PopularFragment.newInstance();
+                return UpcomingFragment.newInstance();
             default:
                 return UpcomingFragment.newInstance();
         }

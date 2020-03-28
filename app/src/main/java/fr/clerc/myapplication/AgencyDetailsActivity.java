@@ -16,7 +16,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static fr.clerc.myapplication.MainActivity.FEATURE_NAME;
+import static fr.clerc.myapplication.MainActivity.MOVIE_ID;
 
 public class AgencyDetailsActivity extends AppCompatActivity {
 
@@ -30,7 +30,7 @@ public class AgencyDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie_detail);
 
-        name = findViewById(R.id.feature_name);
+        name = findViewById(R.id.movie_id);
         street = findViewById(R.id.feature_street);
         address = findViewById(R.id.feature_address);
         type = findViewById(R.id.feature_type);
@@ -48,7 +48,7 @@ public class AgencyDetailsActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null) {
-            Integer moveId = Integer.parseInt(bundle.getString(FEATURE_NAME));
+            Integer moveId = Integer.parseInt(bundle.getString(MOVIE_ID));
             fetchMovieData(moveId);
         }
     }

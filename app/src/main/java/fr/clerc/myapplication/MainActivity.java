@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerAdapter;
 
-    public static final String FEATURE_NAME = "feature_name";
+    public static final String MOVIE_ID = "movie_id";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.uwetrottmann.tmdb2.entities.BaseMovie;
 
 import java.util.List;
@@ -41,17 +42,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_feature, parent, false);
+                .inflate(R.layout.item_movie, parent, false);
         return new RecyclerViewAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
         final BaseMovie movie = movies.get(position);
-
-        holder.image.setImageResource(R.drawable.metro_logo);
-        holder.featureName.setText(Integer.toString(movie.id));
-        holder.featureStreet.setText(movie.title);
+        Picasso.get().load("https://image.tmdb.org/t/p/w185/"+movie.poster_path).into(holder.image);
+        holder.title.setText(movie.title);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,18 +62,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     class ViewHolder extends RecyclerView.ViewHolder {
         final View itemView;
-        final TextView featureName;
-        final TextView featureStreet;
-        final TextView featureAddress;
+        final TextView title;
         final ImageView image;
 
         ViewHolder(View view) {
             super(view);
             itemView = view;
-            featureName = view.findViewById(R.id.feature_name);
-            featureStreet = view.findViewById(R.id.feature_street);
-            featureAddress = view.findViewById(R.id.feature_address);
-            image = view.findViewById(R.id.feature_type);
+            title = view.findViewById(R.id.movie_title);
+            image = view.findViewById(R.id.movie_poster);
         }
     }
 }
