@@ -31,8 +31,8 @@ import static fr.clerc.myapplication.MainActivity.MOVIE_ID;
 
 public class SearchFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    RecyclerViewAdapter recyclerAdapter;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerAdapter;
     private SearchView searchView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -41,7 +41,6 @@ public class SearchFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
 
         recyclerView = view.findViewById(R.id.myRecyclerView);
-
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
