@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.uwetrottmann.tmdb2.entities.BaseMovie;
+import com.uwetrottmann.tmdb2.entities.Movie;
 
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     public void addMovies(List<BaseMovie> movies) {
         this.movies.addAll(movies);
+        notifyDataSetChanged();
+    }
+
+    public void addMovie(Movie movie) {
+        this.movies.add(movie);
         notifyDataSetChanged();
     }
 

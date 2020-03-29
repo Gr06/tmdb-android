@@ -18,7 +18,7 @@ import com.uwetrottmann.tmdb2.entities.MovieResultsPage;
 import com.uwetrottmann.tmdb2.services.MoviesService;
 
 import java.util.ArrayList;
-import fr.clerc.myapplication.AgencyDetailsActivity;
+import fr.clerc.myapplication.ui.movieDetail.MovieDetailsActivity;
 import fr.clerc.myapplication.R;
 import fr.clerc.myapplication.RecyclerViewAdapter;
 import fr.clerc.myapplication.TmdbClient;
@@ -54,7 +54,7 @@ public class PopularFragment extends Fragment {
         recyclerAdapter= new RecyclerViewAdapter(new ArrayList(), new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseMovie movie) {
-                Intent intent = new Intent(getContext(), AgencyDetailsActivity.class);
+                Intent intent = new Intent(getContext(), MovieDetailsActivity.class);
                 intent.putExtra(MOVIE_ID, Integer.toString(movie.id));
                 startActivity(intent);
             }

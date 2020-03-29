@@ -4,6 +4,7 @@
     <string name="agence_label">Agence</string>
 
     <string name="app_error">Oops something went wrong</string>
+    <string name="saved">Sauvegardé</string>
 
     <string name="title_home">Accueil</string>
     <string name="title_favorites">Favoris</string>
@@ -14,4 +15,8 @@
     <string name="tab_text_3">Populaire</string>
 
     <string name="movie_poster">Movie poster</string>
+
+    <string name="action_favorite">Ajouter aux favoris</string>
+    <string name="action_remove_from_favorites">Enlever des favoris</string>
+
 </resources>

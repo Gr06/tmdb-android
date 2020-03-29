@@ -4,16 +4,23 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
+import com.uwetrottmann.tmdb2.entities.Movie;
+
+import java.util.List;
+
+import fr.clerc.myapplication.data.MovieDataRepository;
+
 public class FavoritesViewModel extends ViewModel {
 
-    private MutableLiveData<String> mText;
+    private LiveData<List<Movie>> favoriteListLiveData;
 
-    public FavoritesViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is dashboard fragment");
+    public FavoritesViewModel(MovieDataRepository repository) {
+        favoriteListLiveData = repository.getAllFavoriteMovies();
     }
 
-    public LiveData<String> getText() {
-        return mText;
+    public LiveData<List<Movie>> getFavoriteListLiveData() {
+        return favoriteListLiveData;
     }
 }
+
+
