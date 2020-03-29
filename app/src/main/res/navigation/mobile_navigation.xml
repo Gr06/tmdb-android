@@ -12,14 +12,14 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
+        android:id="@+id/navigation_search"
+        android:name="fr.clerc.myapplication.ui.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+
+    <fragment
         android:id="@+id/navigation_dashboard"
         android:name="fr.clerc.myapplication.ui.favorites.FavoritesFragment"
         android:label="@string/title_favorites"
         tools:layout="@layout/fragment_favorites" />
-
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="fr.clerc.myapplication.ui.search.SearchFragment"
-        android:label="@string/title_search"
-        tools:layout="@layout/fragment_notifications" />
 </navigation>
