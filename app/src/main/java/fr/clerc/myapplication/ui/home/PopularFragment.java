@@ -18,10 +18,11 @@ import com.uwetrottmann.tmdb2.entities.MovieResultsPage;
 import com.uwetrottmann.tmdb2.services.MoviesService;
 
 import java.util.ArrayList;
-import fr.clerc.myapplication.ui.movieDetail.MovieDetailsActivity;
+
 import fr.clerc.myapplication.R;
 import fr.clerc.myapplication.RecyclerViewAdapter;
 import fr.clerc.myapplication.TmdbClient;
+import fr.clerc.myapplication.ui.movieDetail.MovieDetailsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,8 +31,8 @@ import static fr.clerc.myapplication.MainActivity.MOVIE_ID;
 
 public class PopularFragment extends Fragment {
 
-    RecyclerView recyclerView;
-    RecyclerViewAdapter recyclerAdapter;
+    private RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerAdapter;
 
     public static PopularFragment newInstance() {
         return (new PopularFragment());
@@ -84,7 +85,7 @@ public class PopularFragment extends Fragment {
 
             @Override
             public void onFailure(Call<MovieResultsPage> call, Throwable t) {
-                //Manage errors
+                Toast.makeText(getContext(), getString(R.string.app_error), Toast.LENGTH_LONG).show();
             }
         });
     }

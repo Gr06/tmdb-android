@@ -12,6 +12,7 @@ import com.squareup.picasso.Picasso;
 import com.uwetrottmann.tmdb2.entities.BaseMovie;
 import com.uwetrottmann.tmdb2.entities.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -38,6 +39,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void addMovies(List<BaseMovie> movies) {
         this.movies.addAll(movies);
         notifyDataSetChanged();
+    }
+
+    public void clearMovies() {
+        this.movies = new ArrayList<>();
     }
 
     public void addMovie(Movie movie) {

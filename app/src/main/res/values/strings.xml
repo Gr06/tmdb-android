@@ -4,6 +4,7 @@
     <string name="agence_label">Agence</string>
 
     <string name="app_error">Oops something went wrong</string>
+    <string name="no_movie_found">Aucun film correspondant à la recherche n\'a été trouvé</string>
     <string name="saved">Sauvegardé</string>
 
     <string name="title_home">Accueil</string>
