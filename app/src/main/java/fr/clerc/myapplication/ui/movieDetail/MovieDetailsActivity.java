@@ -114,7 +114,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
         );
 
         Toolbar toolbar = findViewById(R.id.agencyDetailToolbar);
+        toolbar.setTitle("Détail film");
         setSupportActionBar(toolbar);
+
 
 
         toolbar.setNavigationIcon(R.drawable.ic_back);

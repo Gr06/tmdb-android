@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Détail film</string>
+    <string name="app_name">Movie finder</string>
 
     <string name="agence_label">Agence</string>
 
