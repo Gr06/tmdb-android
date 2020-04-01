@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.uwetrottmann.tmdb2.entities.MovieResultsPage;
 import com.uwetrottmann.tmdb2.services.SearchService;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 import fr.clerc.myapplication.R;
@@ -62,12 +64,14 @@ public class SearchFragment extends Fragment {
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchMovieByName(query);
+                searchView.clearFocus();
                 return true;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                return false;
+                searchMovieByName(newText);
+                return true;
             }
         });
 
@@ -78,7 +82,7 @@ public class SearchFragment extends Fragment {
         SearchService searchService = TmdbClient.getInstance().searchService();
         searchService.movie(movieName, 1, "FR", "FR", false, null, null).enqueue(new Callback<MovieResultsPage>() {
             @Override
-            public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {
+            public void onResponse(@NotNull Call<MovieResultsPage> call, @NotNull Response<MovieResultsPage> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     //Manage data
                     MovieResultsPage movies = response.body();
@@ -90,7 +94,7 @@ public class SearchFragment extends Fragment {
             }
 
             @Override
-            public void onFailure(Call<MovieResultsPage> call, Throwable t) {
+            public void onFailure(@NotNull Call<MovieResultsPage> call, @NotNull Throwable t) {
                 Toast.makeText(getContext(), getString(R.string.app_error), Toast.LENGTH_LONG).show();
             }
         });
