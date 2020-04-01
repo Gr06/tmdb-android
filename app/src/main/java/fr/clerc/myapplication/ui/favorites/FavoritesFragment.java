@@ -60,7 +60,7 @@ public class FavoritesFragment extends Fragment {
             @Override
             public void onItemClick(View view, BaseMovie movie) {
                 Intent intent = new Intent(getContext(), MovieDetailsActivity.class);
-                intent.putExtra(MOVIE_ID, movie.id);
+                intent.putExtra(MOVIE_ID, Integer.toString(movie.id));
                 startActivity(intent);
             }
         });

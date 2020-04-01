@@ -1,17 +1,29 @@
 package fr.clerc.myapplication.ui.movieDetail;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.squareup.picasso.Picasso;
+import com.uwetrottmann.tmdb2.entities.CrewMember;
 import com.uwetrottmann.tmdb2.entities.Movie;
 
+
+import org.json.JSONException;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 import fr.clerc.myapplication.R;
 import fr.clerc.myapplication.data.Injection;
@@ -27,19 +39,25 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private TextView address;
     private TextView type;
     private TextView street;
+    private TextView overview;
+    private TextView releaseDate;
+    private TextView director;
     private boolean isFavori;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_movie_detail);
-
-        name = findViewById(R.id.movie_id);
-        street = findViewById(R.id.feature_street);
-        address = findViewById(R.id.feature_address);
-        type = findViewById(R.id.feature_type);
+        director = findViewById(R.id.director);
+        releaseDate = findViewById(R.id.tv_movie_release_date);
+        name = findViewById(R.id.tv_movie_title);
+        //street = findViewById(R.id.tv_movie_runtime);
+        overview = findViewById(R.id.tv_movie_overview);
+        //address = findViewById(R.id.feature_address);
+        //type = findViewById(R.id.feature_type);
+        ImageView posterImage = findViewById(R.id.iv_movie_poster);
+        ImageView backDrop = findViewById(R.id.header_backdrop);
 
         Bundle bundle = getIntent().getExtras();
         int movieId = DEFAULT_ID;
@@ -65,9 +83,28 @@ public class MovieDetailsActivity extends AppCompatActivity {
         movieDetailsViewModel.getResult().observe(this, new Observer<Movie>() {
             @Override
             public void onChanged(Movie movie) {
-                name.setText(Integer.toString(movie.id));
-                type.setText(movie.title);
-                address.setText("no");
+                DateFormat dateFormat = new SimpleDateFormat("yyyy");
+                String strDate = dateFormat.format(movie.release_date);
+                releaseDate.setText(strDate);
+
+
+                String sDirector ="";
+/*                int count = 0;
+                for (CrewMember c : movie.credits.crew) {
+                    if (c.job == "Director" && count < 1) {
+                        sDirector = c.name;
+                        count++;
+                    }
+                }*/
+
+                director.setText(sDirector);
+                name.setText(movie.title);
+                //type.setText(movie.title);
+                //street.setText(movie.title);
+                overview.setText(movie.overview);
+                Picasso.get().load("https://image.tmdb.org/t/p/w780/"+movie.poster_path).into(posterImage);
+                Picasso.get().load("https://image.tmdb.org/t/p/w342/"+movie.backdrop_path).into(backDrop);
+
                 isFavori = movieDetailsViewModel.isFavorite(movie.id);
                 if (isFavori) {
                     button.setText(R.string.action_remove_from_favorites);
@@ -95,6 +132,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         ViewModelFactory mViewModelFactory = Injection.provideViewModelFactory(this);
         this.movieDetailsViewModel = ViewModelProviders.of(this, mViewModelFactory).get(MovieDetailsViewModel.class);
     }
+
 
 
 }

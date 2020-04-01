@@ -83,4 +83,5 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             image = view.findViewById(R.id.movie_poster);
         }
     }
+
 }
