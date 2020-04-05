@@ -20,8 +20,8 @@ import com.uwetrottmann.tmdb2.services.MoviesService;
 import java.util.ArrayList;
 
 import fr.bernesboubaker.moviefindr.R;
-import fr.bernesboubaker.moviefindr.RecyclerViewAdapter;
-import fr.bernesboubaker.moviefindr.TmdbClient;
+import fr.bernesboubaker.moviefindr.ui.RecyclerViewAdapter;
+import fr.bernesboubaker.moviefindr.data.remote.TmdbClient;
 import fr.bernesboubaker.moviefindr.data.local.MoviesLocalDataSource;
 import fr.bernesboubaker.moviefindr.ui.movieDetail.MovieDetailsActivity;
 import retrofit2.Call;

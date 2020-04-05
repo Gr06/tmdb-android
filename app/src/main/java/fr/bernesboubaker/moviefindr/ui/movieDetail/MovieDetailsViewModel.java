@@ -20,8 +20,6 @@ public class MovieDetailsViewModel extends ViewModel {
 
     private MutableLiveData<Long> movieIdLiveData = new MutableLiveData<>();
 
-    //private final SnackbarMessage mSnackbarText = new SnackbarMessage();
-
     private boolean isFavorite;
 
     public MovieDetailsViewModel(final MovieDataRepository repository, Executor executor) {
@@ -31,57 +29,36 @@ public class MovieDetailsViewModel extends ViewModel {
 
     public void init(long movieId) {
         if (result != null) {
-            return; // load movie details only once the activity created first time
+            return;
         }
         result = repository.loadMovie(movieId);
-
-        setMovieIdLiveData(movieId); // trigger loading movie
+        setMovieIdLiveData(movieId);
     }
 
     public LiveData<Movie> getResult() {
         return result;
     }
 
-/*    public SnackbarMessage getSnackbarMessage() {
-        return mSnackbarText;
-    }*/
-
     public boolean isFavorite(int movieId) {
         return repository.isFavorite(movieId);
-    }
-
-    public void setFavorite(boolean favorite) {
-        isFavorite = favorite;
     }
 
     private void setMovieIdLiveData(long movieId) {
         movieIdLiveData.setValue(movieId);
     }
 
-    public void retry(long movieId) {
-        setMovieIdLiveData(movieId);
-    }
-
     public boolean onFavoriteClicked() {
         int movieId= result.getValue().id;
         if (!isFavorite(movieId)) {
-            System.out.println("pas favori");
             repository.favoriteMovie(movieId);
             isFavorite = true;
             return true;
-            //showSnackbarMessage(R.string.movie_added_successfully);
-        } else {
-            System.out.println("favori");
+        }
+        else {
             repository.unfavoriteMovie(movieId);
             isFavorite = false;
-            //showSnackbarMessage(R.string.movie_removed_successfully);
             return false;
         }
     }
-
-/*    private void showSnackbarMessage(Integer message) {
-        mSnackbarText.setValue(message);
-    }*/
-
 
 }

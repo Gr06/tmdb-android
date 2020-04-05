@@ -13,15 +13,10 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 
 import fr.bernesboubaker.moviefindr.R;
-import fr.bernesboubaker.moviefindr.RecyclerViewAdapter;
+import fr.bernesboubaker.moviefindr.ui.RecyclerViewAdapter;
 
 
 public class HomeFragment extends Fragment {
-    RecyclerView recyclerView;
-    RecyclerViewAdapter recyclerAdapter;
-    private HomeViewModel homeViewModel;
-
-
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

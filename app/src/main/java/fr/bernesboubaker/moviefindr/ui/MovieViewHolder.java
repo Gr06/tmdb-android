@@ -1,4 +1,4 @@
-package fr.bernesboubaker.moviefindr;
+package fr.bernesboubaker.moviefindr.ui;
 
 
 import android.view.View;
@@ -10,6 +10,7 @@ import com.uwetrottmann.tmdb2.entities.Movie;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import fr.bernesboubaker.moviefindr.R;
 
 public class MovieViewHolder extends RecyclerView.ViewHolder {
 

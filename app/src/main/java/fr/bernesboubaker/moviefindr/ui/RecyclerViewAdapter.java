@@ -1,4 +1,4 @@
-package fr.bernesboubaker.moviefindr;
+package fr.bernesboubaker.moviefindr.ui;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +15,7 @@ import com.uwetrottmann.tmdb2.entities.Movie;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import fr.bernesboubaker.moviefindr.R;
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {

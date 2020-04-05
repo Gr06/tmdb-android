@@ -7,9 +7,9 @@ import com.uwetrottmann.tmdb2.services.MoviesService;
 import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 
-import fr.bernesboubaker.moviefindr.TmdbClient;
 import fr.bernesboubaker.moviefindr.data.local.MoviesLocalDataSource;
 import fr.bernesboubaker.moviefindr.data.remote.MoviesRemoteDataSource;
+import fr.bernesboubaker.moviefindr.data.remote.TmdbClient;
 
 public class Injection {
 

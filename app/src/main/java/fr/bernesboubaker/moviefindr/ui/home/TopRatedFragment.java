@@ -20,8 +20,8 @@ import com.uwetrottmann.tmdb2.services.MoviesService;
 import java.util.ArrayList;
 
 import fr.bernesboubaker.moviefindr.R;
-import fr.bernesboubaker.moviefindr.RecyclerViewAdapter;
-import fr.bernesboubaker.moviefindr.TmdbClient;
+import fr.bernesboubaker.moviefindr.ui.RecyclerViewAdapter;
+import fr.bernesboubaker.moviefindr.data.remote.TmdbClient;
 import fr.bernesboubaker.moviefindr.ui.movieDetail.MovieDetailsActivity;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,13 +45,11 @@ public class TopRatedFragment extends Fragment {
             Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_movie_list, container, false);
-        //int index  = getArguments().getInt(ARG_SECTION_NUMBER, -1);
-
 
         recyclerView = view.findViewById(R.id.myRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.getContext());
         recyclerView.setLayoutManager(linearLayoutManager);
-        //recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+
         recyclerAdapter= new RecyclerViewAdapter(new ArrayList(), new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, BaseMovie movie) {

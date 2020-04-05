@@ -1,4 +1,4 @@
-package fr.bernesboubaker.moviefindr;
+package fr.bernesboubaker.moviefindr.data.remote;
 
 import com.uwetrottmann.tmdb2.Tmdb;
 

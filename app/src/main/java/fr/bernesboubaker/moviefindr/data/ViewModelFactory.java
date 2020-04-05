@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import java.util.concurrent.Executor;
 
-import fr.bernesboubaker.moviefindr.ui.favorites.FavoritesViewModel;
 import fr.bernesboubaker.moviefindr.ui.movieDetail.MovieDetailsViewModel;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
@@ -22,9 +21,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(Class<T> modelClass) {
         if (modelClass.isAssignableFrom(MovieDetailsViewModel.class)) {
             return (T) new MovieDetailsViewModel(mMovieDataSource, executor);
-        } else if (modelClass.isAssignableFrom(FavoritesViewModel.class)) {
-            //noinspection unchecked
-            return (T) new FavoritesViewModel(mMovieDataSource);
+
         }
         throw new IllegalArgumentException("Unknown ViewModel class");
     }

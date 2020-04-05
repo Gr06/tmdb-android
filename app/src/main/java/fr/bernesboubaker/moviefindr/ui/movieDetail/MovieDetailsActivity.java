@@ -24,7 +24,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import fr.bernesboubaker.moviefindr.R;
-import fr.bernesboubaker.moviefindr.TmdbClient;
+import fr.bernesboubaker.moviefindr.data.remote.TmdbClient;
 import fr.bernesboubaker.moviefindr.data.Injection;
 import fr.bernesboubaker.moviefindr.data.ViewModelFactory;
 import retrofit2.Call;

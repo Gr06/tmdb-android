@@ -88,7 +88,6 @@ public class MoviesLocalDataSource {
     }
     private ArrayList<String> readFromFile(Context context) {
         ArrayList<String> favoris = new ArrayList<String>();
-/*        String ret = "";*/
 
         try {
             InputStream inputStream = context.openFileInput(FILENAME);
@@ -101,12 +100,8 @@ public class MoviesLocalDataSource {
 
                 while ( (receiveString = bufferedReader.readLine()) != null ) {
                     favoris.add(receiveString.trim());
-                    //stringBuilder.append("\n").append(receiveString);
                 }
-
                 inputStream.close();
-                //ret = stringBuilder.toString();
-
             }
         }
         catch (FileNotFoundException e) {

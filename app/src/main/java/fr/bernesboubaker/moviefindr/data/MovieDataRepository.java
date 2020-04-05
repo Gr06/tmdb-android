@@ -36,14 +36,7 @@ public class MovieDataRepository {
         return mRemoteDataSource.loadMovie(movieId);
     }
 
-/*    public LiveData<MovieResultsPage> loadUpComingMovies() {
-        return mRemoteDataSource.loadUpComingMovies();
-    }*/
 
-    public LiveData<List<Movie>> getAllFavoriteMovies() {
-        return null;
-        //return mLocalDataSource.getAllFavoriteMoviesIds();
-    }
 
     public boolean isFavorite(final int movieId) {
         return mLocalDataSource.isFavorite(movieId);
