@@ -100,13 +100,6 @@
                     android:text="@string/action_favorite"
                     android:textColor="#000000"
                     android:textSize="16sp" />
-                <!--        <Button
-                            android:id="@+id/button_id"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/action_favorite"
-                            tools:visibility="visible"
-                            app:layout_constraintTop_toBottomOf="@id/tv_movie_runtime"/>-->
 
                 <TextView
                     android:id="@+id/label_overview"
@@ -139,7 +132,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/card_trailer"
-                    android:layout_width="220dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="15dp"
@@ -189,6 +182,7 @@
                             android:paddingEnd="16dp"
                             android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
                             android:textColor="@color/text_black_87"
+                            android:gravity="center"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/image_trailer"
