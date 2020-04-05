@@ -93,7 +93,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call<Videos> call, Response<Videos> response) {
-                        if (response.body() != null && response.body().results != null) {
+                        if (response.body() != null && response.body().results != null && !response.body().results.isEmpty()) {
                             Videos.Video trailer = response.body().results.get(0);
 
                             trailerName.setText(trailer.name);
