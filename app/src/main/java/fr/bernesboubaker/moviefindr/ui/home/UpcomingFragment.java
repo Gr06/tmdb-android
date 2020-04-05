@@ -63,14 +63,27 @@ public class UpcomingFragment extends Fragment {
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
-        fetchUpComingMovies();
-        //return inflater.inflate(R.layout.fragment_upcoming, container, false);
+        final int[] loadedPageId = {1};
+        fetchUpComingMovies(loadedPageId[0]);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    loadedPageId[0]++;
+                    fetchUpComingMovies(loadedPageId[0]);
+                }
+            }
+        });
+
         return view;
     }
 
-    private void fetchUpComingMovies() {
+    private void fetchUpComingMovies(int loadedPageId) {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.upcoming(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
+        moviesService.upcoming(loadedPageId, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

@@ -63,14 +63,28 @@ public class PopularFragment extends Fragment {
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
-        fetchPopularMovies();
+        final int[] loadedPageId = {1};
+        fetchPopularMovies(loadedPageId[0]);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    loadedPageId[0]++;
+                    fetchPopularMovies(loadedPageId[0]);
+                }
+            }
+        });
+
         //return inflater.inflate(R.layout.fragment_upcoming, container, false);
         return view;
     }
 
-    private void fetchPopularMovies() {
+    private void fetchPopularMovies(int loadedPageId) {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.popular(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
+        moviesService.popular(loadedPageId, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

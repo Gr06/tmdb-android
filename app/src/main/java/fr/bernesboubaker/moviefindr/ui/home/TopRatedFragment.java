@@ -63,14 +63,26 @@ public class TopRatedFragment extends Fragment {
         recyclerView.setAdapter(recyclerAdapter);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),3));
 
-        fetchTopRatedMovies();
-        //return inflater.inflate(R.layout.fragment_upcoming, container, false);
+        final int[] loadedPageId = {1};
+        fetchTopRatedMovies(loadedPageId[0]);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+
+                if (!recyclerView.canScrollVertically(1)) {
+                    loadedPageId[0]++;
+                    fetchTopRatedMovies(loadedPageId[0]);
+                }
+            }
+        });
         return view;
     }
 
-    private void fetchTopRatedMovies() {
+    private void fetchTopRatedMovies(int loadedPageId) {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.topRated(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
+        moviesService.topRated(loadedPageId, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {
