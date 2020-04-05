@@ -12,5 +12,15 @@
         android:padding="@dimen/item_offset"
         android:scrollbars="none" />
 
+    <!--add empty state layout here-->
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:gravity="center"
+        android:text="@string/no_favorites"
+        android:textSize="20sp"
+        android:visibility="gone" />
 
 </LinearLayout>

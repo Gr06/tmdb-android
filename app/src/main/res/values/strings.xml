@@ -24,4 +24,6 @@
     <string name="label_trailer"><u>Bande-annonce</u></string>
     <string name="trailer_thumbnail">Vignette Bande-annonce</string>
     <string name="play_icon">Icone de lancement</string>
+
+    <string name="no_favorites">Aucun favoris n\'a encore été ajouté !</string>
 </resources>

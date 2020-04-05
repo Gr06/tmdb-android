@@ -51,10 +51,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
         director = findViewById(R.id.director);
         releaseDate = findViewById(R.id.tv_movie_release_date);
         name = findViewById(R.id.tv_movie_title);
-        //street = findViewById(R.id.tv_movie_runtime);
         overview = findViewById(R.id.tv_movie_overview);
-        //address = findViewById(R.id.feature_address);
-        //type = findViewById(R.id.feature_type);
+
         ImageView posterImage = findViewById(R.id.iv_movie_poster);
         ImageView backDrop = findViewById(R.id.header_backdrop);
         TextView trailerName = findViewById(R.id.trailer_name);
@@ -151,6 +149,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 finish();
             }
         });
