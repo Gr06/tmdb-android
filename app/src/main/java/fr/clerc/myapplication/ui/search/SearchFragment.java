@@ -89,12 +89,14 @@ public class SearchFragment extends Fragment {
                     recyclerAdapter.clearMovies();
                     recyclerAdapter.addMovies(movies.results);
                 } else {
+                    recyclerAdapter.clearMovies();
                     Toast.makeText(getContext(), getString(R.string.no_movie_found), Toast.LENGTH_LONG).show();
                 }
             }
 
             @Override
             public void onFailure(@NotNull Call<MovieResultsPage> call, @NotNull Throwable t) {
+                recyclerAdapter.clearMovies();
                 Toast.makeText(getContext(), getString(R.string.app_error), Toast.LENGTH_LONG).show();
             }
         });
