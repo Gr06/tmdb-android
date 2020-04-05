@@ -70,7 +70,7 @@ public class PopularFragment extends Fragment {
 
     private void fetchPopularMovies() {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.popular(1,"FR","FR").enqueue(new Callback<MovieResultsPage>() {
+        moviesService.popular(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

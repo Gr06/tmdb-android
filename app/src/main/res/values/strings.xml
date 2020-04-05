@@ -20,4 +20,8 @@
     <string name="action_favorite">Ajouter aux favoris</string>
     <string name="action_remove_from_favorites">Enlever des favoris</string>
 
+    <string name="label_overview"><u>Résumé</u></string>
+    <string name="label_trailer"><u>Bande-annonce</u></string>
+    <string name="trailer_thumbnail">Vignette Bande-annonce</string>
+    <string name="play_icon">Icone de lancement</string>
 </resources>

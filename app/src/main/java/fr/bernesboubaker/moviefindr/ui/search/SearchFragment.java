@@ -80,7 +80,7 @@ public class SearchFragment extends Fragment {
 
     private void searchMovieByName(String movieName) {
         SearchService searchService = TmdbClient.getInstance().searchService();
-        searchService.movie(movieName, 1, "FR", "FR", false, null, null).enqueue(new Callback<MovieResultsPage>() {
+        searchService.movie(movieName, 1, "fr-EU", null, false, null, null).enqueue(new Callback<MovieResultsPage>() {
             @Override
             public void onResponse(@NotNull Call<MovieResultsPage> call, @NotNull Response<MovieResultsPage> response) {
                 if (response.isSuccessful() && response.body() != null) {

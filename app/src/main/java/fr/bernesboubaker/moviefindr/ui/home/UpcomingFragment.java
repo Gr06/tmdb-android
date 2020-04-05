@@ -70,7 +70,7 @@ public class UpcomingFragment extends Fragment {
 
     private void fetchUpComingMovies() {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.upcoming(1,"fr","FR").enqueue(new Callback<MovieResultsPage>() {
+        moviesService.upcoming(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

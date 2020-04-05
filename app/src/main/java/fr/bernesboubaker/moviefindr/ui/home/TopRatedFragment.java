@@ -70,7 +70,7 @@ public class TopRatedFragment extends Fragment {
 
     private void fetchTopRatedMovies() {
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
-        moviesService.topRated(1,"FR","FR").enqueue(new Callback<MovieResultsPage>() {
+        moviesService.topRated(1, "fr-EU", null).enqueue(new Callback<MovieResultsPage>() {
 
             @Override
             public void onResponse(Call<MovieResultsPage> call, Response<MovieResultsPage> response) {

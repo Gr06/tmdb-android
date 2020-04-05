@@ -28,9 +28,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private MovieDetailsViewModel movieDetailsViewModel;
     private static int DEFAULT_ID = 1;
     private TextView name;
-    private TextView address;
-    private TextView type;
-    private TextView street;
     private TextView overview;
     private TextView releaseDate;
     private TextView director;
@@ -79,16 +76,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
                 String strDate = dateFormat.format(movie.release_date);
                 releaseDate.setText(strDate);
 
+                if (movie.videos != null) ;
 
                 String sDirector ="";
-/*                int count = 0;
-                for (CrewMember c : movie.credits.crew) {
-                    if (c.job == "Director" && count < 1) {
-                        sDirector = c.name;
-                        count++;
-                    }
-                }*/
-
                 director.setText(sDirector);
                 name.setText(movie.title);
                 //type.setText(movie.title);
@@ -126,7 +116,5 @@ public class MovieDetailsActivity extends AppCompatActivity {
         ViewModelFactory mViewModelFactory = Injection.provideViewModelFactory(this);
         this.movieDetailsViewModel = ViewModelProviders.of(this, mViewModelFactory).get(MovieDetailsViewModel.class);
     }
-
-
 
 }
