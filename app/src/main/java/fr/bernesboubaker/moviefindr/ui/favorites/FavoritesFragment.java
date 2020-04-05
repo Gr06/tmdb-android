@@ -35,11 +35,29 @@ public class FavoritesFragment extends Fragment {
     RecyclerView recyclerView;
     RecyclerViewAdapter recyclerAdapter;
     TextView emptyView;
+    private boolean allowRefresh = false;
 
     public static FavoritesFragment newInstance() {
         return (new FavoritesFragment());
     }
 
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        //Initialize();
+        if(allowRefresh){
+            allowRefresh=false;
+            fetchFavoritesMovies();
+        }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        if (!allowRefresh)
+            allowRefresh = true;
+    }
 
     @Override
     public View onCreateView(
@@ -81,12 +99,14 @@ public class FavoritesFragment extends Fragment {
             emptyView.setVisibility(View.GONE);
         }
 
+        recyclerAdapter.clearMovies();
         MoviesService moviesService = TmdbClient.getInstance().moviesService();
         for (int movieId : favoritesIds) {
             moviesService.summary(movieId, "FR").enqueue(new Callback<Movie>() {
                 @Override
                 public void onResponse(Call<Movie> call, Response<Movie> response) {
                     Movie m = response.body();
+
                     recyclerAdapter.addMovie(m);
                 }
 
